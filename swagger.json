@@ -1,0 +1,253 @@
+{
+        "swagger": "2.0",
+        "info": {
+        "version": "1.0.0",
+        "title": "Mini Project 3 Janine Soo Thow",
+        "description": "Mini project 3 - backend development - using Fruit API & GET, POST, PUT and DELETE HTTP methods",
+        "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+        "host": "localhost:8080",
+        "basePath": "/",
+        "tags": [
+            {
+                "name": "Fruits",
+                "description": "API for fruits"
+            }
+    ],
+        "schemes": ["http"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+
+        "paths": {
+            "/fruitlist": {
+                "get": {
+                    "tags": ["Fruitlist"],
+                    "summary": "Gets all the fruits",
+                    "responses": {
+                        "200": {
+                            "description": "OK",
+                            "schema": {
+                                "$ref": "#/definitions/Fruitlist"
+
+                        }
+
+                    }
+                }
+            }
+        },
+            "/fruitlist/create": {
+                "post": {
+                    "tags": ["Fruitlist"],
+                    "summary": "Create a new fruit",
+                    "parameters": [
+                            {
+                                "name": "fruit",
+                                "in": "body",
+                                "description": "Creating fruit",
+                                "required": true,
+                                "schema": {
+                                    "$ref": "#/definitions/Fruitlist"
+                                }
+                            }
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "OK",
+                                "schema": {
+                                    "$ref": "#/definitions/Fruitlist"
+                                }
+                            }
+                        }
+                    }
+                },
+                    "/fruitlist/{id}": {
+                        "put": {
+                            "tags": ["Fruitlist"],
+                            "summary": "Update a fruit by ID",
+                            "parameters": [
+                                {
+                                    "name": "id",
+                                    "in": "path",
+                                    "description": "ID of fruit to update",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                {   
+                                    "name": "fruit",
+                                    "in": "body",
+                                    "description": "The updated fruit object",
+                                    "required": true,
+                                    "schema": {
+                                        "$ref": "#/definitions/Fruitlist"
+                                    }
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "OK",
+                                    "schema": {
+                                        "$ref": "#/definitions/Fruitlist"
+                                    }
+                                }
+                            }
+                        }
+                 },
+                    "Fruitlist/{id}": {
+                        "delete": {
+                            "tags": ["Fruitlist"],
+                            "summary": "Delete a fruit by ID",
+                            "parameters": [
+                                {
+                                    "name": "id",
+                                    "in": "path",
+                                    "description": "ID of fruit to delete",
+                                    "required": "true",
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "OK"
+                                }
+                            }
+                        }
+                    },
+                        "/fruitfamily": {
+                            "get": {
+                                "tags": ["fruitfamily"],
+                                "summary": "Get all the fruit families",
+                                "responses": {
+                                    "200": {
+                                        "description": "ok",
+                                        "schema": {
+                                            "$ref": "#/definitions/fruitfamily"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "/fruitfamily/create": {
+                        "post": {
+                            "tags": ["fruitfamily"],
+                            "summary": "Create a new fruit family",
+                            "parameters": [
+                                    {
+                                        "name": "fruit",
+                                        "in": "body",
+                                        "description": "Creating a fruit family",
+                                        "required": true,
+                                        "schema": {
+                                            "$ref": "#/definitions/fruitfamily"
+                                        }
+                                    }
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "OK",
+                                        "schema": {
+                                            "$ref": "#/definitions/fruitfamily"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "/fruitfamily/{id}": {
+                            "put": {
+                                "tags": ["fruitfamily"],
+                                "summary": "Update a fruit family by ID",
+                                "parameters": [
+                                    {
+                                        "name": "id",
+                                        "in": "path",
+                                        "description": "ID of fruit family to update",
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    {   
+                                        "name": "fruit family",
+                                        "in": "body",
+                                        "description": "The updated family object",
+                                        "required": true,
+                                        "schema": {
+                                            "$ref": "#/definitions/fruitfamily"
+                                        }
+                                    }
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "OK",
+                                        "schema": {
+                                            "$ref": "#/definitions/fruitfamily"
+                                        }
+                                    }
+                                }
+                            }
+                     },
+                     "Fruitfamily/{id}": {
+                        "delete": {
+                            "tags": ["fruitfamily"],
+                            "summary": "Delete a fruit family by ID",
+                            "parameters": [
+                                {
+                                    "name": "id",
+                                    "in": "path",
+                                    "description": "ID of fruit family to delete",
+                                    "required": "true",
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "OK"
+                                }
+                            }
+                        }
+                    }
+
+ },
+
+"definitions": {
+    "Fruitlist": {
+        
+        "properties": {
+            "name": { "type": "string", "example": "Apple" },
+            "id": { "type": "String", "example": "645ede197d7dc7d57370ad18" },
+            "family": { "type": "string", "example": "Rosaceae" },
+            "order": { "type": "string", "example": "Rosales" },
+            "genus": { "type": "string", "example": "Malus" },
+            "nutritions": {
+                "type": "object",
+                "properties": {
+                    "calories": { "type": "Number", "example": 52 },
+                    "fat": { "type": "Number", "example": 0 },
+                    "sugar": { "type": "Number", "example": 10 },
+                    "carbohydrates": { "type": "Number", "example": 14 },
+                    "protein": { "type": "Number", "example": 0 }
+        }
+    }
+}
+},
+    "fruitfamily": {
+            "properties": {
+                "family": {"type": "String", "example": "Ebenaceae"},
+                "name": {"type": "String", "example": "Persimmon"},
+                "order": {"type": "String", "example": "Rosales"},
+                "genus": {"type": "String", "example": "Diospyros"}
+
+        }
+    }
+}
+
+}
+
+
+            
+
+
+
+
+
+
